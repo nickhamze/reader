@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EPUB.js</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="reader.css">
+
+  <script src="reader.js"></script>
+
+</head>
+<body>
+  <div id="main">
+    <a id="opener">
+      <i class="material-icons">menu</i>
+    </a>
+    <select class="minimal">
+      <option>CSS SELECT arrow (minimal)</option>
+      <option>No external background image</option>
+      <option>No wrapper</option>
+    </select>
+    <div id="viewer" class="spreads loading"></div>
+    <span id="hiddenTitle"></span>
+    <a id="prev" href="#prev" class="arrow">
+      <i class="material-icons">chevron_left</i>
+    </a>
+    <a id="next" href="#next" class="arrow">
+      <i class="material-icons">chevron_right</i>
+    </a>
+  </div>
+  <div id="navigation">
+    <a id="closer">
+      <i class="material-icons">close</i>
+    </a>
+    <h1 id="title">...</h1>
+    <image id="cover" width="150px"/>
+    <h2 id="author">...</h2>
+    <ul id="toc"></ul>
+  </div>
+
+</body>
+</html>
