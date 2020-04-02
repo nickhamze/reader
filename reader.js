@@ -1,4 +1,6 @@
 (function() {
+  var book; 
+  var rendition;
 
   function start() {
     var params = URLSearchParams && new URLSearchParams(document.location.search.substring(1));
@@ -9,6 +11,7 @@
     switcher.addEventListener('change', function (e) {
       var switcher = document.getElementById("switcher");
       var url = switcher.options[switcher.selectedIndex].getAttribute('data-level');
+      book.destroy();
       open( url );
     });
 
@@ -18,12 +21,12 @@
 
   function open ( url ) {
         // Load the opf
-        var book = ePub(url, {
+        book = ePub(url, {
           canonical: function(path) {
             return window.location.origin + window.location.pathname + "?loc=" + path;
           }
         });
-        var rendition = book.renderTo("viewer", {
+        rendition = book.renderTo("viewer", {
           ignoreClass: "annotator-hl",
           width: "100%",
           height: "100%"
