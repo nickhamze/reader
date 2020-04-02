@@ -370,7 +370,7 @@ select.minimal {
     5px 5px,
     1px 1.5em;
   background-repeat: no-repeat;
-  border-color: #333;
+  border-color: #E2E2E2;
 }
 select.minimal:focus {
   background-image:

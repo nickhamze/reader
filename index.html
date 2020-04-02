@@ -3,19 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EPUB.js</title>
+  <title>read books from sorta press</title>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="reader.css">
-  <script>
-    const selectElement = document.querySelector('#switcher');
-      selectElement.addEventListener('change', (event) => {
-        var book = getAttribute('data-level');
-});
-  </script>
   <script src="reader.js"></script>
 
 </head>
@@ -25,8 +19,8 @@
       <i class="material-icons">menu</i>
     </a>
     <select id="switcher" class="minimal">
-      <option value="Vol 1" data-level="https://cdn.hypothes.is/demos/epub/content/moby-dick/book.epub">Vol 1</option>
-      <option value="Vol 2" data-level="https://cdn.hypothes.is/demos/epub/content/moby-dick/book.epub">Vol 2</option>
+      <option value="A Half-Century of Type Design and Typography: Vol 1" data-level="https://cdn.hypothes.is/demos/epub/content/moby-dick/book.epub">Vol 1</option>
+      <option value="A Half-Century of Type Design and Typography: Vol 2" data-level="https://cdn.hypothes.is/demos/epub/content/moby-dick/book.epub">Vol 2</option>
     </select>
     <div id="viewer" class="spreads loading"></div>
     <span id="hiddenTitle"></span>
