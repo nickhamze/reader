@@ -137,15 +137,7 @@
 
           $title.textContent = meta.title;
           $author.textContent = meta.creator;
-          if (book.archive) {
-            book.archive.createUrl(book.cover)
-              .then(function (url) {
-                $cover.src = url;
-              })
-          } else {
-            $cover.src = book.cover;
-          }
-
+          
         });
 
         book.rendition.hooks.content.register(function(contents, view) {
