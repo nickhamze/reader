@@ -11,7 +11,9 @@
     switcher.addEventListener('change', function (e) {
       var switcher = document.getElementById("switcher");
       var url = switcher.options[switcher.selectedIndex].getAttribute('data-level');
+      var $nav = document.getElementById("toc");
       book.destroy();
+      $nav.textContent = '';
       open( url );
     });
 
