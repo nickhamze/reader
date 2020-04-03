@@ -5,7 +5,7 @@
   function start() {
     var params = URLSearchParams && new URLSearchParams(document.location.search.substring(1));
     var url = params && params.get("url") && decodeURIComponent(params.get("url"));
-    var default_book = "https://read.sorta.press/books/goudy1.epub";
+    var default_book = "https://cdn.hypothes.is/demos/epub/content/moby-dick/book.epub";
 
     // Switch book
     switcher.addEventListener('change', function (e) {
@@ -146,10 +146,19 @@
         book.loaded.metadata.then(function(meta){
           var $title = document.getElementById("title");
           var $author = document.getElementById("author");
+          var $cover = document.getElementById("cover");
           var $nav = document.getElementById('navigation');
 
           $title.textContent = meta.title;
           $author.textContent = meta.creator;
+          if (book.archive) {
+            book.archive.createUrl(book.cover)
+              .then(function (url) {
+                $cover.src = url;
+              })
+          } else {
+            $cover.src = book.cover;
+          }
 
         });
 
