@@ -64,9 +64,6 @@
           nav.classList.remove("open");
         }, false);
 
-        // Hidden
-        var hiddenTitle = document.getElementById("hiddenTitle");
-
         rendition.on("rendered", function(section){
           var current = book.navigation && book.navigation.get(section.href);
 
