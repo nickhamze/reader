@@ -6,7 +6,7 @@
   <title>read books from sorta press</title>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="reader.css">
@@ -20,9 +20,10 @@
     </a>
     <select id="switcher" class="minimal">
       <option value="A Half-Century of Type Design and Typography: Vol 1" data-level="https://read.sorta.press/books/goudy1.epub">A Half-Century of Type Design and Typography: Vol 1</option>
-      <option value="A Half-Century of Type Design and Typography: Vol 2" data-level="https://read.sorta.press/books/mobydick.epub">A Half-Century of Type Design and Typography: Vol 2</option>
+      <option value="A Half-Century of Type Design and Typography: Vol 2" data-level="https://cdn.hypothes.is/demos/epub/content/moby-dick/book.epub">A Half-Century of Type Design and Typography: Vol 2</option>
     </select>
     <div id="viewer" class="spreads loading"></div>
+    <span id="hiddenTitle"></span>
     <a id="prev" href="#prev" class="arrow">
       <i class="material-icons">chevron_left</i>
     </a>

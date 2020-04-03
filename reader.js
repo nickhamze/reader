@@ -5,7 +5,7 @@
   function start() {
     var params = URLSearchParams && new URLSearchParams(document.location.search.substring(1));
     var url = params && params.get("url") && decodeURIComponent(params.get("url"));
-    var default_book = "https://cdn.hypothes.is/demos/epub/content/moby-dick/book.epub";
+    var default_book = "https://read.sorta.press/books/goudy1.epub";
 
     // Switch book
     switcher.addEventListener('change', function (e) {
@@ -65,6 +65,22 @@
           nav.classList.remove("open");
         }, false);
 
+        // Hidden
+        var hiddenTitle = document.getElementById("hiddenTitle");
+
+        rendition.on("rendered", function(section){
+          var current = book.navigation && book.navigation.get(section.href);
+
+          if (current) {
+            document.title = current.label;
+          }
+
+          // TODO: this is needed to trigger the hypothesis client
+          // to inject into the iframe
+          requestAnimationFrame(function () {
+            hiddenTitle.textContent = section.href;
+          })
+
           var old = document.querySelectorAll('.active');
           Array.prototype.slice.call(old, 0).forEach(function (link) {
             link.classList.remove("active");
@@ -77,6 +93,7 @@
           // Add CFI fragment to the history
           history.pushState({}, '', "?loc=" + encodeURIComponent(section.href));
           // window.location.hash = "#/"+section.href
+        });
 
         var keyListener = function(e){
 
