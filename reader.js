@@ -12,8 +12,14 @@
       var switcher = document.getElementById("switcher");
       var url = switcher.options[switcher.selectedIndex].getAttribute('data-level');
       var $nav = document.getElementById("toc");
+      var $title = document.getElementById("title");
+      var $author = document.getElementById("author");
+      var $cover = document.getElementById("cover");
       book.destroy();
       $nav.textContent = '';
+      $title.textContent = '';
+      $author.textContent = '';
+      $cover.textContent = '';
       open( url );
     });
 
