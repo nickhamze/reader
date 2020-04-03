@@ -65,22 +65,6 @@
           nav.classList.remove("open");
         }, false);
 
-        // Hidden
-        var hiddenTitle = document.getElementById("hiddenTitle");
-
-        rendition.on("rendered", function(section){
-          var current = book.navigation && book.navigation.get(section.href);
-
-          if (current) {
-            document.title = current.label;
-          }
-
-          // TODO: this is needed to trigger the hypothesis client
-          // to inject into the iframe
-          requestAnimationFrame(function () {
-            hiddenTitle.textContent = section.href;
-          })
-
           var old = document.querySelectorAll('.active');
           Array.prototype.slice.call(old, 0).forEach(function (link) {
             link.classList.remove("active");
