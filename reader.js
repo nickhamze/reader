@@ -77,7 +77,6 @@
           // Add CFI fragment to the history
           history.pushState({}, '', "?loc=" + encodeURIComponent(section.href));
           // window.location.hash = "#/"+section.href
-        });
 
         var keyListener = function(e){
 
