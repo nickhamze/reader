@@ -5,7 +5,7 @@
   function start() {
     var params = URLSearchParams && new URLSearchParams(document.location.search.substring(1));
     var url = params && params.get("url") && decodeURIComponent(params.get("url"));
-    var default_book = "https://read.sorta.press/books/goudy1.epub";
+    var default_book = "https://cdn.hypothes.is/demos/epub/content/moby-dick/book.epub";
 
     // Switch book
     switcher.addEventListener('change', function (e) {
@@ -27,6 +27,7 @@
           }
         });
         rendition = book.renderTo("viewer", {
+          ignoreClass: "annotator-hl",
           width: "100%",
           height: "100%"
         });
@@ -37,6 +38,9 @@
           var href =  window.location.href.slice(loc + 5);
           var hash = decodeURIComponent(href);
         }
+
+        rendition.display(hash || undefined);
+
 
         var next = document.getElementById("next");
         next.addEventListener("click", function(e){
@@ -61,12 +65,21 @@
           nav.classList.remove("open");
         }, false);
 
+        // Hidden
+        var hiddenTitle = document.getElementById("hiddenTitle");
+
         rendition.on("rendered", function(section){
           var current = book.navigation && book.navigation.get(section.href);
 
           if (current) {
             document.title = current.label;
           }
+
+          // TODO: this is needed to trigger the hypothesis client
+          // to inject into the iframe
+          requestAnimationFrame(function () {
+            hiddenTitle.textContent = section.href;
+          })
 
           var old = document.querySelectorAll('.active');
           Array.prototype.slice.call(old, 0).forEach(function (link) {
@@ -133,11 +146,20 @@
         book.loaded.metadata.then(function(meta){
           var $title = document.getElementById("title");
           var $author = document.getElementById("author");
+          var $cover = document.getElementById("cover");
           var $nav = document.getElementById('navigation');
 
           $title.textContent = meta.title;
           $author.textContent = meta.creator;
-          
+          if (book.archive) {
+            book.archive.createUrl(book.cover)
+              .then(function (url) {
+                $cover.src = url;
+              })
+          } else {
+            $cover.src = book.cover;
+          }
+
         });
 
         book.rendition.hooks.content.register(function(contents, view) {
