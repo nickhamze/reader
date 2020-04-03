@@ -3,7 +3,7 @@
   function start() {
     var params = URLSearchParams && new URLSearchParams(document.location.search.substring(1));
     var url = params && params.get("url") && decodeURIComponent(params.get("url"));
-    var default_book = window.location.protocol + "https://read.sorta.press/books/goudy1.epub";
+    var default_book = window.location.protocol + "//read.sorta.press/books/goudy1.epub";
 
     // Switch book
     switcher.addEventListener('change', function (e) {
