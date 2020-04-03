@@ -12,7 +12,6 @@
       var switcher = document.getElementById("switcher");
       var url = switcher.options[switcher.selectedIndex].getAttribute('data-level');
       book.destroy();
-      $nav.destroy();
       open( url );
     });
 
