@@ -38,9 +38,6 @@
           var hash = decodeURIComponent(href);
         }
 
-        rendition.display(hash || undefined);
-
-
         var next = document.getElementById("next");
         next.addEventListener("click", function(e){
           rendition.next();
