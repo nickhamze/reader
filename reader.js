@@ -7,6 +7,16 @@
     var url = params && params.get("url") && decodeURIComponent(params.get("url"));
     var default_book = "https://read.sorta.press/books/goudy1.epub";
 
+    var spine_get = this.book.spine.get.bind(this.book.spine);
+this.book.spine.get = function(target) {
+    var t = spine_get(target);
+    while ((t == null) && target.startsWith("../")) {
+        target = target.substring(3);
+        t = spine_get(target);
+    }
+    return t;
+}
+
     // Switch book
     switcher.addEventListener('change', function (e) {
       var switcher = document.getElementById("switcher");
