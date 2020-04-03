@@ -20,7 +20,7 @@
       $title.textContent = '';
       $author.textContent = '';
       $cover.textContent = '';
-      history.pushState({}, '', '', 'https://read.sorta.press');
+      history.pushState(null, "", location.href.split("?")[0]);
       open( url );
     });
 
