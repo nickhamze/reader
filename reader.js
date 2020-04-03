@@ -136,10 +136,18 @@
         book.loaded.metadata.then(function(meta){
           var $title = document.getElementById("title");
           var $author = document.getElementById("author");
-          var $nav = document.getElementById('navigation');
+\          var $nav = document.getElementById('navigation');
 
           $title.textContent = meta.title;
           $author.textContent = meta.creator;
+          if (book.archive) {
+            book.archive.createUrl(book.cover)
+              .then(function (url) {
+                $cover.src = url;
+              })
+          } else {
+            $cover.src = book.cover;
+          }
 
         });
 
