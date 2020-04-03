@@ -3,18 +3,9 @@
   function start() {
     var params = URLSearchParams && new URLSearchParams(document.location.search.substring(1));
     var url = params && params.get("url") && decodeURIComponent(params.get("url"));
-    var default_book = window.location.protocol + "//read.sorta.press/books/goudy1.epub";
-
-    // Switch book
-    switcher.addEventListener('change', function (e) {
-      var switcher = document.getElementById("switcher");
-      var url = switcher.options[switcher.selectedIndex].getAttribute('data-level');
-      book.destroy();
-      open( url );
-    });
-  }
+    var defaultUrl = window.location.protocol + "//read.sorta.press/books/goudy1.epub";
     // Load the opf
-    var book = ePub(url || default_book, {
+    var book = ePub(url || defaultUrl, {
       canonical: function(path) {
         var url =  window.location.href.replace(/loc=([^&]*)/, "loc="+path);
         return url;
