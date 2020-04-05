@@ -38,8 +38,7 @@
         rendition = book.renderTo("viewer", {
           ignoreClass: "annotator-hl",
           width: "100%",
-          height: "100%",
-          fontSize: "140%"
+          height: "100%"
         });
 
         // var hash = window.location.hash.slice(2);
@@ -50,7 +49,7 @@
         }
 
         rendition.display(hash || undefined);
-
+        rendition.themes.fontSize("140%");
 
         var next = document.getElementById("next");
         next.addEventListener("click", function(e){
