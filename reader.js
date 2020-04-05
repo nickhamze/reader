@@ -5,7 +5,7 @@
   function start() {
     var params = URLSearchParams && new URLSearchParams(document.location.search.substring(1));
     var url = params && params.get("url") && decodeURIComponent(params.get("url"));
-    var default_book = "//read.sorta.press/books/A%20Half-Century%20of%20Type%20Design%20and%20Typography%20-%201895-1945%20Volume%201.epub";
+    var default_book = "//read.sorta.press/books/A%20Half-Century%20of%20Type%20Design%20and%20Typography%20-%201895-1945%20Vol%201.epub";
 
     // Switch book
     switcher.addEventListener('change', function (e) {
@@ -51,7 +51,6 @@
         rendition.display(hash || undefined);
         rendition.themes.fontSize("140%");
         rendition.themes.default({ "body": { "padding": "50px!important;" }});
-        rendition.themes.default({ ".p15": { "break-before": "always;!important;" }});
 
         var next = document.getElementById("next");
         next.addEventListener("click", function(e){
