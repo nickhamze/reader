@@ -14,12 +14,10 @@
       var $nav = document.getElementById("toc");
       var $title = document.getElementById("title");
       var $author = document.getElementById("author");
-      var $cover = document.getElementById("cover");
       book.destroy();
       $nav.textContent = '';
       $title.textContent = '';
       $author.textContent = '';
-      $cover.textContent = '';
       history.pushState(null, "", location.href.split("?")[0]);
       open( url );
     });
