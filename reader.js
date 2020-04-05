@@ -49,8 +49,8 @@
         }
 
         rendition.display(hash || undefined);
-        rendition.themes.fontSize("140%");
-        rendition.themes.default({ "body": { "padding": "45px!important;" }});
+        rendition.themes.fontSize("130%");
+        rendition.themes.default({ "body": { "padding": "50px!important;" }});
 
         var next = document.getElementById("next");
         next.addEventListener("click", function(e){
