@@ -37,8 +37,9 @@
         });
         rendition = book.renderTo("viewer", {
           ignoreClass: "annotator-hl",
-          width: "70%",
-          height: "100%"
+          width: "100%",
+          height: "100%",
+          fontSize: "140%"'
         });
 
         // var hash = window.location.hash.slice(2);
