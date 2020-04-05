@@ -50,7 +50,7 @@
 
         rendition.display(hash || undefined);
         rendition.themes.fontSize("140%");
-        rendition.themes.default({ "body": { "padding": "50px!important;" }});
+        rendition.themes.default({ "body": { "padding": "45px!important;" }});
 
         var next = document.getElementById("next");
         next.addEventListener("click", function(e){
