@@ -308,6 +308,10 @@ svg {
   width: 400px;
 }
 
+#viewer.loading {
+  background: white url('loader.gif') center center no-repeat;
+}
+
 select {
   /* styling */
   background-color: white;
